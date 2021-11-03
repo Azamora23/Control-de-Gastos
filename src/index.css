@@ -4,22 +4,14 @@
   box-sizing: border-box;
 }
 
-:root {
-  font-size: 16px;
-}
-/*
 body {
-  background: #F9F9F9;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-family: 'Roboto', sans-serif;
+  background-color: aqua;
 }
 
 #root {
   width: 100%;
+  font-size: 1rem;
 }
 
-@media screen and (max-width: 60rem){ /* 950px */
   
