@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Contenedor = styled.div`
+
     background: #fff;
     width: 70%;
     max-width: 70rem; 
