@@ -1,9 +1,16 @@
 import React from "react";
 import "bulma/css/bulma.min.css";
+import {Helmet} from "react-helmet";
+import Header from "./elementos/Header";
 
 const App = () => {
   return (
-    <h1>Hola Mundo</h1>
+    <>
+    <Helmet>
+      <title>Agregar Gastos</title>
+    </Helmet>
+    <Header></Header>
+    </>
   );
 }
  
