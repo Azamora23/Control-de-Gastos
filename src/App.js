@@ -4,8 +4,6 @@ import "bulma/css/bulma.min.css";
 const App = () => {
   return (
     <h1>Hola Mundo</h1>
-      
-   
   );
 }
  
