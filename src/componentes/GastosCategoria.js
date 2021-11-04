@@ -2,7 +2,8 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import {Header} from "../elementos/Header";
 import {Titulo} from "../elementos/Titulo";
-import { Link } from "react-router-dom";
+import "bulma/css/bulma.min.css";
+import BotonRegresar from "../elementos/BotonRegresar";
 
 const GastosCategoria = () => {
     return (
@@ -12,12 +13,10 @@ const GastosCategoria = () => {
         </Helmet>
         <Header className="level">
             <div className="level-left">
-                <Titulo>Gastos de Categoria</Titulo>
+                <BotonRegresar></BotonRegresar>
             </div>
-            <div className="level-right buttons">
-                <Link className="button is-primary is-outlined" to="/categorias">Categoria</Link>
-                <Link className="button is-primary is-outlined" to="/lista-categorias">Lista de Gastos</Link>
-                <Link className="button is-primary is-outlined">x</Link>
+            <div className="level-right">
+                <Titulo>Gastos por Categoria</Titulo>
             </div>
         </Header>
     </>
