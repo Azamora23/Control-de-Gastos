@@ -19,12 +19,12 @@ const RegistroUsuarios = () => {
                     <Titulo>Crear Cuenta</Titulo>
                 </div>
                 <div className="level-right">
-                    <Link className="button is-primary is-outlined" to="/">Iniciar Sesion</Link>
+                    <Link className="button is-primary is-focused" to="/inicio-sesion">Iniciar Sesion</Link>
                 </div>
             </Header>  
             <Formulario>
             <div className="columns">
-            <img src="/registro1.jpg" alt="imagen de registro"></img>
+            <img src="/inicioSesion2.jpg" alt="imagen de registro"></img>
                 <div className="column is-three-fifths is-offset-one-fifth">
                     <Input className="input is-medium is-focus is-primary" type="email" name="email" placeholder="Correo Electronico"></Input>
                     <Input className="input is-medium is-focus is-primary" type="password" name="password" placeholder="Contraseña"></Input>

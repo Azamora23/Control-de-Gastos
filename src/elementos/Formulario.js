@@ -8,6 +8,8 @@ const Formulario = styled.form`
     height: 70vh;
     max-height: 40rem;
     border-radius: 0.625rem; 
+    padding-top: 2rem;
+
 `;
 
 const Input = styled.input`
