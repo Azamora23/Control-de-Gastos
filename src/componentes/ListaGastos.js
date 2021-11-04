@@ -8,8 +8,8 @@ import BotonRegresar from "../elementos/BotonRegresar";
 const ListaGastos = () => {
     return (
         <>
-         <Helmet>
-            <title>Lista de Gastos</title>
+            <Helmet>
+                <title>Lista de Gastos</title>
             </Helmet>
             <Header className="level">
                 <div className="level-left">
