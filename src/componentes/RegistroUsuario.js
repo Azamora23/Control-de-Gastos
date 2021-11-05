@@ -7,10 +7,11 @@ import { Link } from "react-router-dom";
 import "bulma/css/bulma.min.css";
 import {Formulario, Input} from "../elementos/Formulario";
 import {auth} from "./../firebase/FirebaseConfig";
+import { useHistory } from "react-router";
 
 
 const RegistroUsuarios = () => {
-    
+    const history = useHistory();
     const [correo, establecerCorreo] = useState("");
     const [password, establecerPassword] = useState("");
     const [password2, establecerPassword2] = useState("");
@@ -33,7 +34,7 @@ const RegistroUsuarios = () => {
     }
 
     //funcion enviar datos
-    const submit = (e) => {
+    const submit = async (e) => {
         e.preventDefault();
         
         //validacion de corro del lado del cliente
@@ -52,15 +53,29 @@ const RegistroUsuarios = () => {
             console.log("las contraseñas no coinciden");
             return;
         }
-
+        
         try{
-            auth.createUserWithEmailAndPassword(correo, password);
-        } catch (error){
-            console.log(error);
+            await auth.createUserWithEmailAndPassword(correo, password);
+            history.push("/");
+        } catch(error){
+            let mensaje;
+            switch(error.code){
+                case 'auth/invalid-password':
+                    mensaje = 'La contraseña tiene que ser de al menos 6 caracteres.'
+                    break;
+                case 'auth/email-already-in-use':
+                    mensaje = 'Ya existe una cuenta con el correo electrónico proporcionado.'
+                break;
+                case 'auth/invalid-email':
+                    mensaje = 'El correo electrónico no es válido.'
+                break;
+                default:
+                    mensaje = 'Hubo un error al intentar crear la cuenta.'
+                break;
+            }
+            console.log(mensaje);
         }
-
     }
-
 
     return (
         <>
