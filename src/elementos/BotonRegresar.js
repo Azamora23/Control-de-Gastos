@@ -11,5 +11,5 @@ const BotonRegresar = ({ruta = "/"}) => {
         <button className="button is-dark is-outlined" onClick={() => history.push(ruta)}><FontAwesomeIcon icon={faArrowAltCircleLeft} style={{fontSize:"3rem"}}></FontAwesomeIcon></button>
     );
 }
- 
+
 export default BotonRegresar;

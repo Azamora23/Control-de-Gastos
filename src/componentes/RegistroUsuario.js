@@ -8,6 +8,8 @@ import "bulma/css/bulma.min.css";
 import {Formulario, Input} from "../elementos/Formulario";
 import {auth} from "./../firebase/FirebaseConfig";
 import { useHistory } from "react-router";
+import Alertas from "../elementos/Alertas";
+import styled from "styled-components";
 
 
 const RegistroUsuarios = () => {
@@ -15,6 +17,8 @@ const RegistroUsuarios = () => {
     const [correo, establecerCorreo] = useState("");
     const [password, establecerPassword] = useState("");
     const [password2, establecerPassword2] = useState("");
+    const [estadoAlerta, cambioEstadoAlerta] = useState (false);
+    const [alerta, cambiarAlerta] = useState ({});
 
     //funcion onchange
     const change = (e) => {
@@ -36,21 +40,35 @@ const RegistroUsuarios = () => {
     //funcion enviar datos
     const submit = async (e) => {
         e.preventDefault();
+        cambioEstadoAlerta(false);
+        cambiarAlerta({});
         
         //validacion de corro del lado del cliente
         const expresionRegular = /[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/;
         if (!expresionRegular.test(correo)) {
-            console.log ("correo no valido");
+            cambioEstadoAlerta(true);
+            cambiarAlerta({
+                tipo: "error",
+                mensaje: "Por favor ingresar un correo valido"
+            })
             return;
         }
 
         if (correo === "" || password === "" || password2 === ""){
-            console.log("ingresar todos los campos");
+            cambioEstadoAlerta(true);
+            cambiarAlerta({
+                tipo: "error",
+                mensaje: "Por favor ingresar todos los campos"
+            })
             return;
         }
 
         if(password !== password2){
-            console.log("las contraseñas no coinciden");
+            cambioEstadoAlerta(true);
+            cambiarAlerta({
+                tipo: "error",
+                mensaje: "Las contraseñas no coinciden"
+            })
             return;
         }
         
@@ -58,6 +76,8 @@ const RegistroUsuarios = () => {
             await auth.createUserWithEmailAndPassword(correo, password);
             history.push("/");
         } catch(error){
+            cambioEstadoAlerta(true);
+            
             let mensaje;
             switch(error.code){
                 case 'auth/invalid-password':
@@ -73,7 +93,10 @@ const RegistroUsuarios = () => {
                     mensaje = 'Hubo un error al intentar crear la cuenta.'
                 break;
             }
-            console.log(mensaje);
+            cambiarAlerta({
+                tipo: "error",
+                mensaje: mensaje
+            })
         }
     }
 
@@ -97,17 +120,32 @@ const RegistroUsuarios = () => {
                     <Input className="input is-medium is-focus is-primary" type="email" name="email" placeholder="Correo Electronico" value={correo} onChange={change}></Input>
                     <Input className="input is-medium is-focus is-primary" type="password" name="password" placeholder="Contraseña" value={password} onChange={change}></Input>
                     <Input className="input is-medium is-focus is-primary" type="password" name="password2" placeholder="Repetir contraseña" value={password2} onChange={change}></Input>
-                    <button className="button is-danger is-medium is-fullwidth" type="submit">Crear Cuenta</button>
+                    <Boton className="button is-medium is-fullwidth" type="submit">Crear Cuenta</Boton>
                 </div>    
             </div>
             </Formulario>
+            <Alertas tipo={alerta.tipo} mensaje={alerta.mensaje} estadoAlerta={estadoAlerta} cambioEstadoAlerta={cambioEstadoAlerta}></Alertas>
         </>
 
-        
+    
 
         
     );
 }
+
+const Boton = styled.button`
+    background: #F2C12E;
+    color: #fff;        
+    
+    &:hover{
+        color: #fff;
+        border: #F2C12E
+    }
+    &:focus{
+        border: #F2C12E;
+        color: #fff;
+    }
+`;
 
 
  
