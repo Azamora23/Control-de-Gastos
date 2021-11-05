@@ -6,6 +6,7 @@ import {Titulo} from "../elementos/Titulo";
 import { Link } from "react-router-dom";
 import "bulma/css/bulma.min.css";
 import {Formulario, Input} from "../elementos/Formulario";
+import Boton from "../elementos/Boton";
 
 const InicioSesion = () => {
     return (        
@@ -27,7 +28,7 @@ const InicioSesion = () => {
                 <div className="column is-three-fifths is-offset-one-fifth">
                     <Input className="input is-medium is-focus is-primary" type="email" name="email" placeholder="Correo Electronico"></Input>
                     <Input className="input is-medium is-focus is-primary" type="password" name="password" placeholder="Contraseña"></Input>
-                    <button className="button is-danger is-medium is-fullwidth" type="submit">Iniciar Sesión</button>
+                    <Boton className="button is-medium is-fullwidth" type="submit">Iniciar Sesión</Boton>
                 </div>    
             </div>
             </Formulario>
