@@ -6,10 +6,11 @@ import {Titulo} from "../elementos/Titulo";
 import { Link } from "react-router-dom";
 import "bulma/css/bulma.min.css";
 import {Formulario, Input} from "../elementos/Formulario";
+import Boton from "../elementos/Boton"
 import {auth} from "./../firebase/FirebaseConfig";
 import { useHistory } from "react-router";
 import Alertas from "../elementos/Alertas";
-import styled from "styled-components";
+
 
 
 const RegistroUsuarios = () => {
@@ -133,19 +134,7 @@ const RegistroUsuarios = () => {
     );
 }
 
-const Boton = styled.button`
-    background: #F2C12E;
-    color: #fff;        
-    
-    &:hover{
-        color: #fff;
-        border: #F2C12E
-    }
-    &:focus{
-        border: #F2C12E;
-        color: #fff;
-    }
-`;
+
 
 
  
