@@ -37,7 +37,7 @@ const ContenedorAlerta = styled.div`
     p {
         background: ${(props) => {
             if(props.tipo === 'error'){
-                return "hsl(348, 100%, 61%)";
+                return "#F22E2E";
             } else if (props.tipo === 'exito') {
                 return "hsl(141, 53%, 53%)";
             } else {

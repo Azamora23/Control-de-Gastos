@@ -1,16 +1,30 @@
 * {
-  padding: 0.5rem 0rem;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  font-size: 16px;
+}
+
 body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: 'Roboto', sans-serif;
-  background-color: hsl(171, 100%, 41%);
+  background: hsl(171, 100%, 41%);
 }
 
 #root {
   width: 100%;
-  font-size: 16px;
+}
+
+@media screen and (max-width: 950px){ 
+  :root {
+      font-size: 14px;
+  }
 }
 
   

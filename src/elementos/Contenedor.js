@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
-const Contenedor = styled.div`
-
+const Contenedor = styled.main`
     background: #fff;
     width: 70%;
     max-width: 70rem; 
@@ -16,6 +15,7 @@ const Contenedor = styled.div`
     justify-content: space-between;
     position: relative;
     z-index: 100;
+    
  
     @media(max-width: 60rem){ /* 950px */
         height: 95vh;
